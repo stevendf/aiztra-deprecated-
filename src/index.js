@@ -1,17 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './styles/index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+const express = require('express');
+const morgan = require('morgan');
+const path = require('path');
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const app = express();
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// Db connection
+const { mongoose } = require('./database');
+
+// Settings 
+app.set('port', process.env.PORT || 3000);
+
+// Middlewares
+app.use(morgan('dev'));
+app.use(express.json());
+
+// Routes
+app.use('/api/users',require('./routes/user.routes'));
+
+// Static Files
+app.use(express.static(path.join(__dirname, 'public')));;
+
+// Starting the server
+app.listen(app.get('port'), () => {
+    console.log(`Server on port ${app.get('port')}`);
+  });

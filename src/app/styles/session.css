@@ -1,0 +1,52 @@
+.Session {
+    text-align: center;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+  }
+  
+  .auth-form-container, .login-form, .register-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  @media screen and (min-width: 600px) {
+    .auth-form-container {
+      padding: 4rem;
+      border-radius: 10px;
+      margin: 0.5rem;
+      background-image: linear-gradient(75deg, #520c72, #377099 48%, hsl(188, 63%, 53%));
+      height: 9cm;
+      width: 7cm;
+    }
+  }
+  
+  label {
+    text-align: left;
+    padding: 0.05rem 0.09;
+  }
+  
+  input {
+    margin: 0.5rem 0;
+    padding: 1rem;
+    border: none;
+    border-radius: 10px;
+  }
+  
+  button {
+    border: none;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #7439db;
+  }
+  
+  .link-btn {
+    background: none;
+    color: white;
+    text-decoration: underline;
+  }
+  
